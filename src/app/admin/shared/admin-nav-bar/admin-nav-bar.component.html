@@ -1,0 +1,61 @@
+<div *ngIf="login then auth else Guest">
+
+</div>
+
+<ng-template #auth>
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/admin">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/admin">Home</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Blogs
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/create_blog">Create</a></li>
+              <li><a class="dropdown-item" routerLink="/list_blog">List</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/create_services">Create</a></li>
+              <li><a class="dropdown-item" routerLink="#">List</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Users
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/create_admin">Create</a></li>
+              <li><a class="dropdown-item" routerLink="#">List</a></li>
+
+            </ul>
+          </li>
+
+        </ul>
+
+        <button (click)="logout()" class="btn btn-outline-success" type="submit">logout</button>
+      </div>
+    </div>
+  </nav>
+</ng-template>
+<ng-template #Guest>
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <a routerLink="/login" class="btn btn-outline-success" type="submit">login</a>
+  </nav>
+</ng-template>

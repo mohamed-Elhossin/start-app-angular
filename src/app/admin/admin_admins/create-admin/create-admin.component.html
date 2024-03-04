@@ -1,0 +1,30 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+
+<div class="container col-md-6">
+
+  <h1 class="text-center">Create Users </h1>
+  <div class="card">
+    <div *ngIf="message.length > 0" class="alert alert-success">
+      {{message}}
+    </div>
+    <div class="card-body">
+
+
+        <div class="form-group">
+          <label for="">User Name </label>
+          <input  [(ngModel)]="admin.name"   type="text" class="form-control"
+            placeholder="User Name">
+        </div>
+        <div class="form-group">
+          <label for="">Password </label>
+          <input type="password" [(ngModel)]="admin.password"     class="form-control"
+            placeholder="User Password">
+        </div>
+
+        <div class="d-grid">
+          <button (click)="create()" class="btn btn-info"> Create User </button>
+        </div>
+
+    </div>
+  </div>
+</div>

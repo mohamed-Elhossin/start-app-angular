@@ -1,0 +1,65 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+
+<div class="container col-md-6">
+
+  <h1 class="text-center">Create Blogs </h1>
+  <div class="card">
+    <div *ngIf="message.length > 0" class="alert alert-success">
+      {{message}}
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label for="">Title </label>
+          <input type="text" required name="title" [(ngModel)]="blog.title" class="form-control"
+            placeholder="Blog Title">
+        </div>
+        <div class="form-group">
+          <label for="">description </label>
+          <input type="text" required name="description" [(ngModel)]="blog.description" class="form-control"
+            placeholder="Blog description">
+        </div>
+        <div class="form-group">
+          <label for="">category </label>
+          <select name="category" required [(ngModel)]="blog.category" class="form-control" id="">
+            <option disabled selected> Select Option</option>
+            <option value="Marketing"> Marketing</option>
+            <option value="Sales"> Sales</option>
+            <option value="plocy"> plocy</option>
+            <option value="HR"> HR</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">User Name </label>
+          <input name="userName" required type="text" [(ngModel)]="blog.user" class="form-control"
+            placeholder="Blog Name">
+        </div>
+        <div class="form-group">
+          <label for="">blog_image </label>
+          <input name="blog_image" required type="url" [(ngModel)]="blog.blog_image" class="form-control"
+            placeholder="Blog blog_image">
+        </div>
+        <div class="form-group">
+          <label for="">user_image </label>
+          <input name="user_image" required type="url" [(ngModel)]="blog.user_image" class="form-control"
+            placeholder="Blog user_image">
+        </div>
+
+        <div *ngIf="myForm.valid then isValid else isInValid ">
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #isValid>
+  <div class="d-grid">
+    <button (click)="create()" class="btn btn-info ">Send Now </button>
+  </div>
+</ng-template>
+
+<ng-template #isInValid>
+  <div class="d-grid">
+    <button disabled class="btn btn-info ">Please Write All Inputs </button>
+  </div>
+</ng-template>

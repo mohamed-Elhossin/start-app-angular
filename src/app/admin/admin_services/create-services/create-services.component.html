@@ -1,0 +1,50 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+
+
+<div class="container col-md-6">
+
+  <h1 class="text-center">Create Services </h1>
+  <div class="card">
+    <div *ngIf="message.length > 0" class="alert alert-success">
+      {{message}}
+    </div>
+    <div class="card-body">
+      <form [formGroup]="ServicesForm">
+        <div class="form-group">
+          <label for="">Title </label>
+          <input type="text" (change)="print(ServicesFormGet)" formControlName="title" required name="title"
+            class="form-control" placeholder="Blog Title">
+        </div>
+        <div *ngIf="ServicesForm.controls.title.touched &&ServicesForm.controls.title.invalid"
+          class="alert alert-danger">
+          please Enter DAta
+        </div>
+        <div class="form-group">
+          <label for="">description </label>
+          <input type="text" required name="description" formControlName="description" class="form-control"
+            placeholder="Blog description">
+        </div>
+
+        <div class="form-group">
+          <label for="">Icon </label>
+          <input name="icon" formControlName="icon" required type="text" class="form-control" placeholder="Blog Name">
+        </div>
+
+        <div *ngIf="ServicesForm.valid then isValid else isInValid">
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #isValid>
+  <div class="d-grid">
+    <button (click)="create()" class="btn btn-info ">Send Now </button>
+  </div>
+</ng-template>
+
+<ng-template #isInValid>
+  <div class="d-grid">
+    <button disabled class="btn btn-info ">Please Write All Inputs </button>
+  </div>
+</ng-template>

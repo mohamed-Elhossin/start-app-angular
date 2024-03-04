@@ -1,0 +1,26 @@
+<div class="container col-md-4">
+
+  <h1 class="text-center">Create Blogs </h1>
+  <div *ngIf="message.length > 0" class="alert alert-success">
+    {{message}}
+  </div>
+  <div class="card">
+
+    <img class="img-top img-fluid" [src]="myObject.blog_image" alt="">
+    <div class="card-body">
+      <h5> Title :{{ myObject.title }} </h5>
+      <hr>
+      <h5> description :{{ myObject.description }} </h5>
+      <hr>
+      <h5> Category :{{ myObject.category }} </h5>
+      <hr>
+      <h5> Date :{{ myObject.date }} </h5>
+      <hr>
+      <h5> User :{{ myObject.user }} </h5>
+      <hr>
+      <div class="d-grid">
+        <button class="btn btn-danger" (click)="remove(myObject.id)"> Remove </button>
+      </div>
+    </div>
+  </div>
+</div>
